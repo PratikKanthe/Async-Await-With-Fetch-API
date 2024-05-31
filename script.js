@@ -126,3 +126,41 @@ async function fetchData2() {
 }
 
 fetchData2();
+
+// get data from api using async and await src jsonplaceholder it is used to simply get the data from server example searching on google
+
+async function getAPIData() {
+  let data = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  let result = await data.json();
+  return result;
+}
+
+getAPIData();
+
+// post method in api post is used to share confidential information to server for example logs in url example post method is used in forms
+
+async function postData() {
+  let data = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    method: "POST",
+    body: JSON.stringify({
+      title: "Shirshak",
+      body: "Sharir",
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+
+  let result = await data.json(); // wait for data
+  return result;
+}
+
+async function showPost() {
+  let showData = await postData();
+  console.log(showData);
+  return showData;
+}
+
+showPost();
