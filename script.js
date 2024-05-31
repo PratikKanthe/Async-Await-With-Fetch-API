@@ -50,3 +50,33 @@ async function main() {
 //   });
 main();
 console.log("task 2");
+
+/* 1. Promise 
+  A promise in JavaScript is like a container for a future value. It represents a value that might not be available yet but will be resolved at some point, either successfully or with an error. Promises help manage asynchronous operations, like fetching data from a server or reading a file, making it easier to handle tasks that take some time to complete.
+
+  Types Of Promise :
+
+  + Pending: The promise is still working on the task. It hasn't finished yet.
+  + Fulfilled: The promise has successfully completed the task, and it has a result.
+  + Rejected: The promise couldn't complete the task due to an error, and it has an error reason.
+
+*/
+//example of promise Ordering Pizza
+let PizzaOrder = true; //make it false for rejecting the order
+let pizzaPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (PizzaOrder) {
+      console.log("Order Dilivered Successfully");
+    } else {
+      console.log("Sorry, Order Rejected");
+    }
+  }, 3000);
+});
+
+pizzaPromise
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((v) => {
+    console.log(v);
+  });
