@@ -80,3 +80,49 @@ pizzaPromise
   .catch((v) => {
     console.log(v);
   });
+
+// Async And Await
+/* 
+ 
+  async and await are keywords in JavaScript that help you write cleaner and more readable code for handling asynchronous operations. They make it easier to work with promises by allowing you to write asynchronous code in a way that looks like regular, synchronous code.
+
+  async
+  The async keyword is used to define a function that will always return a promise. Even if you return a value directly, async will wrap it in a promise.
+
+ */
+
+//Example of async
+
+async function fetchData() {
+  return "Data Fetched";
+}
+fetchData().then((v) => {
+  console.log(v);
+});
+
+/* 
+
+  await
+  The await keyword can only be used inside an async function. It makes JavaScript wait until a promise is resolved and returns its result. If the promise is rejected, it throws an error.
+
+  Here's how they work together:
+
+  Define an async function: This allows you to use await inside it.
+  Use await to pause execution: It waits for the promise to resolve and gets the result.
+
+*/
+
+//Example of await
+
+async function fetchData2() {
+  let data = await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data Fetched Successfully");
+    }, 3000);
+  });
+
+  let result = await data;
+  console.log(result);
+}
+
+fetchData2();
